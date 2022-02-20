@@ -4,14 +4,10 @@ import "./index.css";
 import App from "./App";
 
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import createSagaMiddleware from "redux-saga";
-import { watchAgeUp } from "./sagas/saga";
+import { createStore } from "redux";
+import reducer from "./store/reducer";
 
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(reducer, applyMiddleware(sagaMiddleware));
-
-sagaMiddleware.run(watchAgeUp);
+const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>

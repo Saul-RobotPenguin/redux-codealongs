@@ -4,14 +4,16 @@ import "./index.css";
 import App from "./App";
 
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import createSagaMiddleware from "redux-saga";
-import { watchAgeUp } from "./sagas/saga";
+import { combineReducers, createStore } from "redux";
+// import reducer from "./store/reducer";
+import reducerA from "./store/reducerA";
+import reducerB from "./store/reducerB";
 
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(reducer, applyMiddleware(sagaMiddleware));
-
-sagaMiddleware.run(watchAgeUp);
+const roodReducer = combineReducers({
+  rA: reducerA,
+  rB: reducerB,
+});
+const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>

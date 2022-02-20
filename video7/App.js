@@ -11,16 +11,17 @@ function App() {
     </div>
   );
 }
+
 const mapStateToProps = (state) => {
   return {
     age: state.age,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispachToProps = (dispatch) => {
   return {
     onAgeUp: () => dispatch({ type: "AGE_UP", value: 1 }),
     onAgeDown: () => dispatch({ type: "AGE_DOWN", value: 1 }),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispachToProps)(App);
